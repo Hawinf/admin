@@ -1,0 +1,169 @@
+.wrapper-listcars {
+    padding-bottom: 40px;
+}
+.listcars-left {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+.listcars-left .judul-listcars {
+    font-size: 23px;
+    font-weight: 700;
+}
+.listcars-left .add-car {
+    padding: 7px;
+    background-color: blue;
+    border-radius: 5px;
+    font-weight: 500;
+    color: rgb(142, 194, 211);
+    color: white;
+    text-decoration: none;
+}
+.listcars-right{
+    text-align: left;
+    margin-left: 20px;
+}
+.listcars-right .ctg-btn {
+    margin-right: 5px;
+    padding: 7px;
+    background-color: white;
+    border: 2px solid lightblue;
+    border-radius: 3px;
+    font-weight: 500;
+    color: rgb(142, 194, 211);
+}
+
+/* cars-data awal */
+.kotak-gambar {
+    margin-top: 20px;
+}
+.card-img {
+    padding: 20px;
+}
+.car-details {
+    height: 200px;
+    width: 100%;
+    border-radius: 5px;
+}
+.kartu-details {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.namamobil {
+    text-align: left;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+.hargamobil {
+    text-align: left;
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 3px;
+}
+.category {
+    text-align: left;
+    font-size: 14px;
+    margin-bottom: 3px;
+}
+.terupdate {
+    text-align: left;
+    font-size: 14px;
+    color: rgb(101, 87, 65);
+}
+.btn-details {
+    display: flex;
+    justify-content: space-around;
+}
+.btn-details .tombol-delete {
+    width: 80%;
+    background-color: transparent;
+    border-radius: 4px;
+    border: 2px solid rgb(227, 78, 78);
+    font-weight: 700;
+    color: rgb(227, 78, 78);
+    padding: 10px;
+    margin-right: 2px;
+}
+.btn-details .tombol-edit{
+    width: 80%;
+    background-color: rgb(92, 197, 82);
+    border-radius: 4px;
+    color: white;
+    border: 0;
+    font-weight: 700;
+    padding: 10px;
+    margin-left: 2px;
+    text-decoration: none;
+}
+/* cars-data akhir */
+/* start dialog-box */
+.dialog-aktif {
+    position: absolute;
+    width: 100%;
+    height: 270%;
+    top: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: block;
+    transition: 0.3s;
+    z-index: 1;
+}
+.dialog-box {
+    position: absolute;
+    top: 40%;
+    right: 39%;
+    background-color: white;
+    border-radius: 5px;
+    padding: 50px;
+    border: 1px solid rgb(142, 194, 211);
+}
+.dialog-box .judul-dialog {
+    font-weight: 700;
+}
+.dialog-box .dialog-delete {
+    background-color: transparent;
+    border-radius: 3px;
+    border: 1px solid rgb(39, 7, 7);
+    color: black;
+    width: 100%;
+    font-weight: 700;
+}
+.dialog-box .dialog-no {
+    margin: 2px;
+    background-color: rgb(59, 18, 18);
+    border-radius: 3px;
+    border: 1px solid rgb(39, 7, 7);
+    color: whitesmoke;
+    width: 100%; 
+    font-weight: 700;
+}
+/* end dialog box */
+@media (max-width:992px) {
+    
+    .dialog-box {
+        right: 35%;
+    }
+}
+@media (max-width:768px) {
+    .dialog-aktif {
+        height: 410%;
+    }
+    .car-details {
+        height: 300px;
+    }
+    .dialog-box {
+        right: 30%;
+    }
+}
+@media (max-width:576px) {
+    .dialog-aktif {
+        height: 940%;
+    }
+    .car-details {
+        height: 250px;
+    }
+    .dialog-box {
+        right: 20%;
+    }
+}
