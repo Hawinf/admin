@@ -1,4 +1,4 @@
-import React, { PureComponent, useEffect } from "react";
+import React, { PureComponent, useEffect, useState } from "react";
 import NavbarDasboard from "../../component/navbardashb";
 import { BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import carReducers from "../../redux/reducers/carReducer";
@@ -9,6 +9,11 @@ import { useDispatch, useSelector } from "react-redux";
 const Dashboard = () => {
     const {carReducers} = useSelector(state=>state);
     const dispatch = useDispatch();
+    const [satu, setSatu] = useState(false);
+
+    const handleSatu = () => {
+        setSatu(true);
+    }
 
     const getData = () => {
         const token = localStorage.getItem('token')
@@ -22,7 +27,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         getData();
-    })
+    }, [])
 
     const data = [
         {name: 'January' , total: 110},
@@ -71,28 +76,33 @@ const Dashboard = () => {
                                 <div className="tabel-judul">
                                     <p className="tjudul">No</p>
                                     <p className="tjudul">User Email</p>
-                                    <p className="tjudul">Car</p>
+                                    <p className="tjudul">Car ID</p>
                                     <p className="tjudul">Start Rent</p>
                                     <p className="tjudul">Finish Rent</p>
                                     <p className="tjudul">Price</p>
-                                    <p className="tjudul">Category</p>
+                                    <p className="tjudul">Updated At</p>
                                 </div>
                                 
                                     {
                                         !!carReducers.carsData.length ? carReducers.carsData.slice(0, 15).map((item, i) => {
+                                            let k = 1;
+                                            for (let k = 1; k <=carReducers.carsData.length; k++) 
                                             return (
                                                 <div className="tabel-konten" key={i}>
-                                                    <p className="kjudul">1</p>
-                                                    <p className="kjudul">k</p>
-                                                    <p className="kjudul">Car</p>
-                                                    <p className="kjudul">Start Rent</p>
-                                                    <p className="kjudul">Finish Rent</p>
-                                                    <p className="kjudul">Price</p>
-                                                    <p className="kjudul">Category</p>
+                                                    <p className="kjudul">{i + 1}</p>
+                                                    <p className="kjudul">{item.User.email}</p>
+                                                    <p className="kjudul">{item.CarId}</p>
+                                                    <p className="kjudul">{item.start_rent_at.slice(0,10)}</p>
+                                                    <p className="kjudul">{item.finish_rent_at.slice(0,10)}</p>
+                                                    <p className="kjudul">Rp. {item.total_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
+                                                    <p className="kjudul">{item.updatedAt.slice(0,10)}</p>
                                                 </div>
                                             )
                                         }) : null
                                     }  
+                            </div>
+                            <div>
+                                <button onClick={handleSatu}>1</button>
                             </div>
                         </div>
                 </div>

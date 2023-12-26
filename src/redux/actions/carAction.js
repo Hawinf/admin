@@ -4,11 +4,11 @@ export const GetAllCars = (configurasi) => (dispatch) => {
     axios
         .get('https://api-car-rental.binaracademy.org/admin/v2/car?page=1&pageSize=10', configurasi)
         .then((res) => {
-            
             dispatch({
                 type: 'GETALLCARS',
                 payload: res.data.cars,
             })
+            
         })
         .catch((err) => console.log(err));
 }
@@ -76,7 +76,7 @@ export const GetListCar = (configurasi) => (dispatch) => {
     axios 
         .get('https://api-car-rental.binaracademy.org/admin/order', configurasi)
         .then((res) => {
-            console.log(res.data.slice(0, 15), 'ini res bos')
+            console.log(res.data, 'ini res bos')
             dispatch({
                 type: 'LISTORDER',
                 payload : res.data,
