@@ -15,15 +15,10 @@ export const loginAction = (payload) => (dispatch) => {
         .catch((err) => console.log(err));
 }
 
-export const logoutAction = (payload) => (dispatch) => {
-    axios
-        .post('https://api-car-rental.binaracademy.org/admin/auth/login', payload)
-        .then((res) => {
-            localStorage.removeItem('token');
-            dispatch({
-                type: 'LOGOUT',
-                payload: false,
-            })
-        })
-        .catch((err) => console.log(err));
+export const logoutAction = () => (dispatch) => {
+    localStorage.removeItem('token');
+    dispatch({
+        type: 'LOGOUT',
+        payload: false
+    })
 }

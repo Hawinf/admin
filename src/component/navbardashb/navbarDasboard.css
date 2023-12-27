@@ -58,6 +58,7 @@
     transition: 0.3s;
     height: 100vh;
     z-index: 1;
+    
 }
 .sidebar-menu .top-sidebar {
     display: flex;

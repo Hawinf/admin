@@ -19,9 +19,12 @@ const NavbarDasboard = () => {
     const userEmail = localStorage.getItem('user')
     const inisialEmail = userEmail.slice(0,1).toLocaleUpperCase();
 
+
     const handleLogout = () => {
-        // dispatch(logoutAction());
-        navigate('/')
+        dispatch(logoutAction());
+        setTimeout(() => {
+            navigate('/')
+        }, 2000);
     }
 
     const handleSidebar = () => {
