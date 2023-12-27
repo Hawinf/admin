@@ -7,7 +7,7 @@ import { GetSmallCar } from "../../redux/actions/carAction";
 import { DeleteCar } from "../../redux/actions/carAction";
 import './listcars.css';
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 
 const ListCars = () => {
@@ -74,7 +74,7 @@ const ListCars = () => {
             <NavbarDasboard />
             <div className="listcars-left">
                 <h1 className="judul-listcars">List Car</h1>
-                <a href="/add-new-car" className="add-car">+ Add New Car</a>
+                <Link to={"/add-new-car"} className="add-car">+ Add New Car</Link>
             </div>
             <div className="listcars-right">
                 <button onClick={getCars} className="ctg-btn">All</button>

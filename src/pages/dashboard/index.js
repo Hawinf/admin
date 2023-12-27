@@ -11,9 +11,24 @@ const Dashboard = () => {
     const dispatch = useDispatch();
     const [satu, setSatu] = useState(false);
 
-    const handleSatu = () => {
-        setSatu(true);
+    const itemsPerPage = 15;
+    const [currentPage, setCurrentPage] = useState(0);
+    const startIndex = currentPage * itemsPerPage;
+    const endIndex = (currentPage + 1) * itemsPerPage;
+    const handleClickNextPage = () => {
+        setCurrentPage((prevPage) => prevPage + 1)
+
     }
+    const handleClickPrevPage = () => {
+        setCurrentPage((prevPage) => prevPage - 1)
+
+    }
+    const RenderPagination = () => {
+        if (!carReducers.carsData.length) {
+            return null
+        }
+    } 
+    
 
     const getData = () => {
         const token = localStorage.getItem('token')
@@ -84,7 +99,7 @@ const Dashboard = () => {
                                 </div>
                                 
                                     {
-                                        !!carReducers.carsData.length ? carReducers.carsData.slice(0, 15).map((item, i) => {
+                                        !!carReducers.carsData.length ? carReducers.carsData.slice(startIndex, endIndex).map((item, i) => {
                                             let k = 1;
                                             for (let k = 1; k <=carReducers.carsData.length; k++) 
                                             return (
@@ -101,8 +116,10 @@ const Dashboard = () => {
                                         }) : null
                                     }  
                             </div>
-                            <div>
-                                <button onClick={handleSatu}>1</button>
+                            <div className="next-prev">
+                                {RenderPagination()}
+                                <button className="next-prev-tmbol" onClick={handleClickPrevPage}>Previous</button>
+                                <button className="next-prev-tmbol" onClick={handleClickNextPage}>Next</button>
                             </div>
                         </div>
                 </div>
