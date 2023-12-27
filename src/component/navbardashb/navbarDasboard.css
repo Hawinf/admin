@@ -11,11 +11,12 @@
 }
 .navbar-dashboard .navdash-right {
     display: flex;
+    height: 40px;
 }
 .navbar-dashboard .tombol-searchnav {
     background-color: white;
     border: 1px solid blue;
-    color: blue;
+    color: black;
     margin-right: 30px;
     font-weight: 500;
 }
